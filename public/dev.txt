@@ -1,0 +1,54 @@
+--- WELCOME TO THE DEV DOCUMENT ---
+Communicate with others here. You should probably join the Discord though:
+https://discord.gg/VSGTT8Wc
+   
+-- TO DO ---
+
+// fix disconnection issues? []
+
+// add nsfw.js image filters []
+
+// fix bug where the first person to join doesn't get his online list
+   updated until someone else joints []
+
+// better report system []
+
+// message reactions []
+
+// typing alerts []
+
+// bio system []
+
+/ fix performance a bit []
+
+--- IN PROGRESS ---
+
+// upgrade filters [LUKASEXISTS]
+
+--- FINISHED/IMPOSSIBLE SHIT ---
+
+// token bans [DONE]
+
+/ clean up dependencies [DONE]
+
+// possible profile picture system [DONE]
+
+// retractable sidebar with buttons [DONE] 
+mostly made to help on mobile - L413
+
+// alert size limits for images so people dont get kicked [DONE]
+i've also increased the size limit - lukasexists
+
+// clean up code - sort code into different scripts [DONE]
+
+// upgrade to socket.io v4 [DONE]
+
+////// make automatic backups of database [DONE]
+I AM SO SORRY FOR DELAYING THIS!
+I really shouldn't have and it ended up costing us the database.
+I am the only one allowed with access to the database backups,
+because I don't want someone abusing their access and stealing
+accounts.
+- LukasExists
+
+// username color customization [DONE]

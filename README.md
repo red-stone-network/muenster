@@ -1,2 +1,4 @@
-# muenster
-Muenster is a chat app, made to let you chat with friends at school easily.
+# Welcome to the Muenster source code!
+
+PLEASE MAKE SURE YOU DON'T MAKE CHANGES IF THE DATABASE IS BEING WRITTEN TO - 
+IF YOU DO YOU WILL CORRUPT THE ENTIRE DATABASE BEYOND REPAIR!
