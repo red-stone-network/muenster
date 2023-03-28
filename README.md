@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/red-stone-network/muenster/images/images/mnstr.png?token=GHSAT0AAAAAAB5OWH52MPL5RJY5A3R5PPAKZBC6LWQ" align="center">
+  <img src="https://raw.githubusercontent.com/red-stone-network/muenster/images/images/mnstr.png" align="center">
 </p>
 
 <h4 align="center">
