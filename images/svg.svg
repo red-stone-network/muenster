@@ -1,0 +1,12 @@
+<svg width="600" height="150" xmlns="http://www.w3.org/2000/svg">
+ <title>mnstr.svg</title>
+ <g>
+  <title>Layer 1</title>
+  <line stroke-width="8" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_1" y2="138.44597" x2="578.56463" y1="138.44597" x1="21.43539" stroke="#ffff00" fill="none"/>
+  <g id="svg_4">
+   <text transform="matrix(3.29687 0 0 3.2683 -450.529 -50.9053)" stroke="#ffff00" font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Nunito SemiBold'" font-size="24" id="svg_2" y="39.02598" x="162.42673" stroke-width="0" fill="#ffff00">MUENSTER</text>
+   <text transform="matrix(1.5329 0 0 1.4053 -83.4938 78.5079)" stroke="#ffff00" font-style="normal" font-weight="normal" xml:space="preserve" text-anchor="start" font-family="'Montserrat Light'" font-size="24" id="svg_3" y="28.56542" x="94.89134" stroke-width="0" fill="#ffff00">BY REDSTONE NETWORK</text>
+  </g>
+ </g>
+
+</svg>
