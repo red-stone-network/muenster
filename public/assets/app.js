@@ -56,7 +56,7 @@ console.log(
 
 function genHexString(len) {
   const hex =
-    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_";
+    "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-_~!@#$%^&*()`=+;:'\" ,.<.>/?\|¥£¢€¤¦«×÷ƕǶǷΔඞ◉✱◀▶▬✀❖🧀〓";
   let output = "";
   for (let i = 0; i < len; ++i) {
     output += hex.charAt(Math.floor(Math.random() * hex.length));
@@ -115,8 +115,13 @@ function notifDisplay(text, timeMs) {
 
 /* tags */
 if (localStorage.getItem("token") == null) {
-  localStorage.setItem("token", genHexString(32));
+  localStorage.setItem("token", genHexString(64));
 }
+
+if (localStorage.getItem("token").length == 32) {
+  localStorage.setItem("token", genHexString(64));
+}
+
 
 function aClick(t) {
   event.preventDefault();

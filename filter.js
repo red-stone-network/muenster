@@ -16,6 +16,7 @@ const request = https.request(url, (response) => {
       filterLink = new RegExp(
         data.replace(/\n/g, "").replace(/https:\/\//g, ""),
         "g")
+      console.log(filterLink)
     });
 })
 request.on('error', (error) => {
