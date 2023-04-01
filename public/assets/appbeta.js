@@ -1,6 +1,6 @@
 const socket = io();
 
-const version = "2.8.1";
+const version = "2.8.3";
 
 var colorPicker = new iro.ColorPicker("#picker", {
   // Set the size of the color picker

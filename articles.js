@@ -41,6 +41,87 @@ read them <a href="/rules/index.html">here</a>.<br><br>
 With all that being said, we hope you have a good time on Muenster!`,
   },
   {
+    title:"Community Guidelines",
+    slug:"community-guidelines",
+    date:"March 29, 2023",
+    content:`
+  To keep our community safe, we have rules for our users to follow. This
+  allows us to keep Muenster a safe and friendly place for you and your
+  friends. Please take the time to at least skim over these rules.
+<h4>
+  These rules will go into effect on April 2nd, 2023.
+</h4>
+<h3>
+  SFW content
+</h3>
+<ul>
+  <li>Sexual conversations are not allowed here.</li>
+  <li>Links to sexual websites (like pron websites) are not allowed.</li>
+  <li>Sexual images (suggestive or NSFW) are not allowed.</li>
+</ul>
+<h3>
+  Hate speech and offensive content
+</h3>
+<ul>
+  <li>No discrimination of groups, including (but not limited to): age; caste; 
+    color; disability; ethnicity; family responsibilities; gender; gender 
+    identity; housing status; national origin; race; refugee or immigration 
+    status; religious affiliation; serious illness; sex; 
+    sexual orientation; socioeconomic class and status; source of income; 
+    status as a victim of violence or stalking; and weight and size.</li>
+  <li>No use of hate symbols.</li>
+  <li>No claims that deny the history of mass human atrocities.</li>
+  <li>If you are a part of a terrorist/hate group, you are not allowed
+  to use Muenster.</li>
+</ul>
+<h3>
+  Spamming, phishing and malware
+</h3>
+<ul>
+  <li>Spamming is strictly forbidden in DMs and Home chat.</li>
+  <li>No spam campaigns (sending unwanted messages with the same or 
+  similar content to multiple users or chats.)</li>
+  <li>No phishing (we consider asking for passwords, or manipulating someone
+  into giving a password phishing. This applies to all websites you link to
+  as well.)</li>
+  <li>No sharing your passwords or tokens, ever.</li>
+  <li>No sharing anything that is able to steal someone's password or tokens</li>
+  <li>No posting malware, or links to websites that contain malware.</li>
+</ul>
+<h3>
+  Impersonation
+</h3>
+<ul>
+  <li>Impersonation is strictly forbidden, whether they have an account already
+  or not.</li>
+  <li>Claiming to be an admin or moderator when not an admin or moderator is
+  also forbidden.</li>
+</ul>
+<h3>
+  Foul language
+</h3>
+<ul>
+  <li>Slurs of any kind will not be tolerated here.</li>
+  <li>Weaker curse words are okay (ass, shit, damn)</li>
+  <li>More severe cursing is okay too (f*ck, d#ck, p*ssy) 
+  as long as it isn't in a sexual context.</li>
+</ul>
+<h3>
+  Personal information
+</h3>
+<ul>
+  <li>Do not give out personal information. This includes, but is not limited
+  to: location (anything more specific than the state;) the school you go to;
+  the sports teams you are on; and your last name.</li>
+  <li>Do not share content that could help users find personal information, of
+  you or others.</li>
+</ul>
+
+<h4>
+  Punishments are at the moderator handling the situation's discretion.
+</h4>`
+  },
+  {
     title:"#1 - We now have an articles page!",
     slug:"1-welcome-to-muenster-articles",
     date:"March 20, 2023",
@@ -117,7 +198,7 @@ Thank you!<br><br>
   },
 ]
 
-exports.genDoc = function(title,content,date) {
+exports.genDoc = function(title,content,date,id) {
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -130,6 +211,13 @@ exports.genDoc = function(title,content,date) {
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/assets/display-style.css" />
     <script src="/assets/tohttps.js"></script>
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://muenster.glitch.me/view-article/$id$">
+    <meta property="og:title" content="Muenster - $title$">
+    <meta property="og:description" content="Chat with your friends at school, easily.">
+    <meta property="og:image" content="https://cdn.glitch.global/3758b37a-5fff-4595-b604-762ee951816d/social.png?v=1680135051755">
+    <meta property="og:sitename" content="Muenster">
   </head>
   <body>
     <h1>
@@ -146,5 +234,5 @@ exports.genDoc = function(title,content,date) {
     </content>
   </body>
 </html>`.replace("$content$",content).replace(/\$title\$/g,title)
-  .replace("$date$",date)
+  .replace(/\$date\$/g,date).replace(/\$id\$/g,id)
 } 

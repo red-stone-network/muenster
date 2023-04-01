@@ -23,7 +23,25 @@ https://discord.gg/VSGTT8Wc
 
 --- IN PROGRESS ---
 
+// warning system for moderators and admins [LUKASEXISTS]
+
 // upgrade filters [LUKASEXISTS]
+
+// new rules [LUKASEXISTS]
+
+// april fools bitch [LUKASEXISTS]
+make all icons poop emojis
+make all usernames brown
+
+add filters:
+var result = result.replace(/hi/g, "cheese");
+var result = result.replace(/hello/g, "haiiii! :3");
+var result = result.replace(/what/g, "**WHAT THE FUCK**");
+var result = result.replace(/fuck/g, "fracking fracker");
+var result = result.replace(/shit/g, "biscuit");
+var result = result.replace(/ass/g, "booty booty buttcheeks");
+var result = result.replace(/april fools/g, "APRIL FOOLS BY MUENSTER! >:3");
+var result = result.replace(/math/g, "number class");
 
 --- FINISHED/IMPOSSIBLE SHIT ---
 

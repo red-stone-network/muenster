@@ -15,8 +15,7 @@ const request = https.request(url, (response) => {
     response.on('end', () => {
       filterLink = new RegExp(
         data.replace(/\n/g, "").replace(/https:\/\//g, ""),
-        "g")
-      console.log(filterLink)
+        "gi")
     });
 })
 request.on('error', (error) => {
@@ -37,7 +36,8 @@ exports.filter = function(text, format) {
   var result = result.replace(/^[\s\r\n]/, "");
   var result = result.replace(/</g, "&lt;");
   var result = result.replace(/>/g, "&gt;");
-  var oldresult = result;var result = result.replace(/[\s\r\n]$/, "");
+  var result = result.replace(/[\s\r\n]$/, "");
+  var oldresult = result;
   
   // START SLUR FILTER - DO NOT PUT ANYTHING IN HERE UNLESS IT REMOVES
   // SLURS OR OTHER BAD STUFF
@@ -56,6 +56,25 @@ exports.filter = function(text, format) {
   }
   // END SLUR FILTER
   if (format == true) {
+    if (/Apr 01/.test(new Date().toDateString())) {
+      var result = result.replace(/hi/ig, "cheese");
+      var result = result.replace(/hello/ig, "haiiii! :3");
+      var result = result.replace(/:\)|:D/g, ":3");  
+      var result = result.replace(/>:\)|>:D/g, ">:3");
+      var result = result.replace(/:\(|D:/g, "TwT");
+      var result = result.replace(/you/ig, "uwu");
+      var result = result.replace(/ok/ig, "no");
+      var result = result.replace(/right now/ig, "later");
+      var result = result.replace(/now/ig, "later");
+      var result = result.replace(/fuck/ig, "fracking fracker");
+      var result = result.replace(/what/ig, "**WHAT THE FUCK**");
+      
+      var result = result.replace(/shit/ig, "biscuit");
+      var result = result.replace(/ass/ig, "booty booty buttcheeks");
+      var result = result.replace(/april fools/ig, "APRIL FOOLS BY MUENSTER! >:3");
+      var result = result.replace(/math/ig, "number class");
+    }
+    
     for (let i = 1; i < 3; ++i) {
       var result = result.replace(/\n/, "<br>");
     }

@@ -184,16 +184,18 @@ function filterText(text, disable) {
   return filterjs.filter(text, disable);
 }
 
-function save(data) {
-  var data2 = JSON.stringify(data);
+function save() {
+  var data2 = JSON.stringify(logins);
   var e2;
   fs.writeFile(".data/logins.json", data2, (err) => {
     e2 = err ? "failure" : "success";
-    console.log("file write " + e2);
+    setTimeout(save, 3000)
   });
   return e2;
   console.log(logins);
 }
+  
+setTimeout(save, 3000)
 
 function checkOnlineUsers() {
   let i = 0;
@@ -653,42 +655,8 @@ io.on("connection", function (socket) {
             if (
             logins.find((x) => x.banToken === data.token) == null
           ) {
-            if (maintMode == true) {
-              if (
-                mntcUsers.find((element) => element == data.username) !=
-                undefined
-              ) {
-                result = "success";
-                socket.loggedIn = true;
-                socket.username = data.username;
-                socket.password = data.password;
-                socket.broadcast.emit("sys message", {
-                  message: socket.username + " joined.",
-                  meta: "join",
-                });
-                hook.send("**" + socket.username + "** joined.");
-                console.log(
-                  logins.find((x) => x.username === data.username).rank
-                );
-                logins.find((x) => x.username === data.username).status =
-                  "Online";
-                onlineUsers.push({
-                  name: data.username,
-                  rank: logins.find((x) => x.username === data.username).rank,
-                  color: logins.find((x) => x.username === data.username).color,
-                  picture: logins.find((x) => x.username === data.username).profilePicture,
-                });
-                console.log(logins.find((x) => x.username === data.username).color);
-                logins.find(
-                  (x) => x.username === data.username
-                ).token = data.token;
-                console.log(logins.find(
-                  (x) => x.username === data.username
-                ).token)
-              } else {
-                result = "maintenance active - try again later";
-              }
-            } else {
+            if ((maintMode == true && mntcUsers.find((element) => element == data.username) !=
+                undefined) || maintMode == false) {
               result = "success";
               socket.loggedIn = true;
               socket.username = data.username;
@@ -711,9 +679,16 @@ io.on("connection", function (socket) {
               logins.find(
                   (x) => x.username === data.username
                 ).token = data.token;
+               hook.send("**" + socket.username + "** joined.");
             }
+             
             } else {
-              result = "fuck you!!!!"
+              if (maintMode == true) {
+                result = "in maintenance mode"
+              } else {
+                result = "in maintenance mode"
+              }
+              
             }
           } else {
             result = "User is banned: ";
@@ -774,7 +749,6 @@ io.on("connection", function (socket) {
                 password: data.password,
                 rank: "user",
               });
-              save(logins);
               } else {
                 result = "account creation disabled";
               }
@@ -805,7 +779,6 @@ io.on("connection", function (socket) {
         logins.find((x) => x.username === socket.username).color = data.color;
         onlineUsers.find((x) => x.name === socket.username).color = data.color;
         result = "success"
-        save(logins);
         socket.settingCooldown = true;
         setTimeout(revertSCd, 5000);
       } else {
@@ -912,7 +885,6 @@ io.on("connection", function (socket) {
           if (socket.settingCooldown == false) {
             logins.find((x) => x.username === socket.username).password =
             data.new_password;
-            save(logins);
             console.log(data.new_password);
             console.log(
               logins.find((x) => x.username === socket.username).password
@@ -951,7 +923,6 @@ io.on("connection", function (socket) {
           var delUsername = "Deleted Account (" + genHexString(9) + ")";
           logins.find((x) => x.username === socket.username).username =
             delUsername;
-          save(logins);
           console.log(delUsername);
           socket.loggedIn = false;
           document.location.reload();
@@ -985,11 +956,10 @@ io.on("connection", function (socket) {
   socket.on("get profile picture", function (data, callback) {
     let fileExists = false;
   try {
-  	async function analDestroyer() {
-      await gitApi.RepositoryFiles.show("44446366", data.name+'.PNG', "main").catch();
-    }
-    analDestroyer()
   	fileExists = true;
+    gitApi.RepositoryFiles.showRaw("44446366", data.name+'.PNG', {ref: "main"}).catch((error) => {
+      fileExists = false;
+    });
   } catch(e) {
     console.log(e)
   }
@@ -1027,18 +997,17 @@ app.get('/view-article/:slug', (req, res) => {
     var title = articles.find((x) => x.slug === req.params.slug).title;
     var content = articles.find((x) => x.slug === req.params.slug).content;
     var date = articles.find((x) => x.slug === req.params.slug).date;
-    res.send(articlesjs.genDoc(title,content,date))
+    res.send(articlesjs.genDoc(title,content,date,req.params.slug)) 
   }
 })
   
 app.get('/api/:name/pic.png*', (req, res) => {
   let fileExists = false;
   try {
-  	async function analDestroyer() {
-      await gitApi.RepositoryFiles.show("44446366", req.params.name+'.PNG', "main").catch();
-    }
-    analDestroyer()
   	fileExists = true;
+    gitApi.RepositoryFiles.showRaw("44446366", req.params.name+'.PNG', {ref: "main"}).catch((error) => {
+      fileExists = false;
+    });
   } catch(e) {
     console.log(e)
   }
@@ -1052,7 +1021,6 @@ app.get('/api/:name/pic.png*', (req, res) => {
       }).catch((error) => {
         gitApi.RepositoryFiles.showRaw("44446366", '!default.PNG', {ref: "main"}).then((response2) => { 
           res.send(response2)
-          console.log("data:image/png;base64,"+Buffer.from(response2).toString('base64'))
         });
         
       });

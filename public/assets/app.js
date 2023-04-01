@@ -1,6 +1,6 @@
 const socket = io();
 
-const version = "2.8.1";
+const version = "2.8.3";
 
 var colorPicker = new iro.ColorPicker("#picker", {
   // Set the size of the color picker
@@ -66,10 +66,12 @@ function genHexString(len) {
 
 function getUsernameColor(username) {
   var type = 0;
-  if (onlineUsers.find((x) => x.name === username)) {
-    if (onlineUsers.find((x) => x.name === username).color != undefined) {
-      type = 1;
-      return onlineUsers.find((x) => x.name === username).color;
+  if (onlineUsers != null && onlineUsers != undefined) {
+    if (onlineUsers.find((x) => x.name === username)) {
+      if (onlineUsers.find((x) => x.name === username).color != undefined) {
+        type = 1;
+        return onlineUsers.find((x) => x.name === username).color;
+      }
     }
   }
   console.log(type);
@@ -163,7 +165,7 @@ function createDMs(user, origin) {
     origin +
     '" onclick="setChannel(`' +
     user +
-    '`);" style="width: 170px; color: ' +
+    '`);" style="width: 240px; color: ' +
     getUsernameColor(origin) +
     ';"><br>';
   document.getElementById("dm-list").innerHTML += btn;
