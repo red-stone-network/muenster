@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  The client source code can be found in <a href="/red-stone-network/muenster-client">a seperate repository</a>.
+  The client source code can be found in <a href="//github.com/red-stone-network/muenster-client">a seperate repository</a>.
 </p>
 
 <h6 align="center">
