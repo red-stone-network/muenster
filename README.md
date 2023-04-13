@@ -4,8 +4,8 @@
 
 <h4 align="center">
   Chat with your friends, easily.<br>
-  <a href="https://muenster.glitch.me/index.html">HOSTED ON GLITCH</a>
-  - <a href="https://muenster.glitch.me/articles/index.html">HELP & ARTICLES</a>
+  <a href="https://muensterchat.glitch.me/index.html">HOSTED ON GLITCH</a>
+  - <a href="https://muensterchat.glitch.me/articles/index.html">HELP & ARTICLES</a>
   - <a href="https://github.com/red-stone-network/muenster/tree/glitch">SOURCE CODE</a><br>
 </h4>
 
