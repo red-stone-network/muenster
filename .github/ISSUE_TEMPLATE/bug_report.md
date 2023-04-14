@@ -6,6 +6,7 @@ labels: bug
 assignees: ''
 
 ---
+**NOTE: Client-side bugs should also be put on this repository, but they will then be moved to the muenster-client repo.**
 
 **Describe the bug**
 A clear and concise description of what the bug is.
